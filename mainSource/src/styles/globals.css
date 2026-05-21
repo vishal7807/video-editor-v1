@@ -1,0 +1,388 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code:wght@400;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+/* ========================================
+   IMG.LY-Inspired Dark Theme
+   ======================================== */
+:root {
+  /* Canvas & Surfaces */
+  --background: hsl(207 18% 10%);
+  --foreground: hsl(200 11% 95%);
+  --card: hsl(208 14% 14%);
+  --card-glass: hsl(208 14% 14% / 0.85);
+  --card-foreground: hsl(200 11% 95%);
+  --popover: hsl(208 14% 16%);
+  --popover-foreground: hsl(200 11% 95%);
+
+  /* Accent */
+  --primary: hsl(221 100% 70%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(208 14% 18%);
+  --secondary-foreground: hsl(200 11% 95%);
+
+  /* Muted & Info */
+  --muted: hsl(208 13% 18%);
+  --muted-foreground: hsl(200 11% 95% / 0.55);
+  --accent: hsl(221 100% 80%);
+  --accent-foreground: hsl(207 18% 10%);
+
+  /* Destructive */
+  --destructive: hsl(346 98% 81%);
+  --destructive-foreground: hsl(208 14% 18%);
+
+  /* Borders & Input */
+  --border: hsl(0 0% 100% / 0.12);
+  --input: hsl(200 27% 6%);
+  --ring: hsl(221 100% 70%);
+
+  /* Radius: 4-8px range, NOT full round */
+  --radius: 8px;
+
+  /* Shadows (IMG.LY) */
+  --shadow-sm: 0px 1px 2px 0px hsla(0, 0%, 0%, 0.16), 0px 0px 0px 0.5px hsla(0, 0%, 0%, 0.12);
+  --shadow-md: 0px 0px 1.5px 0px hsla(0, 0%, 0%, 0.2), 0px 4px 8px -1px hsla(0, 0%, 0%, 0.07), 0px 2px 4px -1px hsla(0, 0%, 0%, 0.05);
+  --shadow-lg: 0px 0px 1.5px 0px hsla(0, 0%, 0%, 0.2), 0 8px 16px -2px hsla(0, 0%, 0%, 0.08), 0 4px 8px -2px hsla(0, 0%, 0%, 0.06);
+
+  /* Sidebar */
+  --sidebar: hsl(207 18% 8%);
+  --sidebar-foreground: hsl(200 11% 95%);
+  --sidebar-primary: hsl(221 100% 70%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(221 100% 80%);
+  --sidebar-accent-foreground: hsl(207 18% 10%);
+  --sidebar-border: hsl(0 0% 100% / 0.1);
+  --sidebar-ring: hsl(221 100% 70%);
+
+  /* Charts */
+  --chart-1: hsl(221 100% 70%);
+  --chart-2: hsl(273 91% 61%);
+  --chart-3: hsl(346 98% 81%);
+  --chart-4: hsl(37 61% 67%);
+  --chart-5: hsl(158 42% 67%);
+}
+
+/* Light Theme */
+.light {
+  --background: hsl(240 8% 97%);
+  --foreground: hsl(208 14% 18%);
+  --card: hsl(0 0% 100%);
+  --card-glass: hsl(0 0% 100% / 0.85);
+  --card-foreground: hsl(208 14% 18%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(208 14% 18%);
+  --primary: hsl(228 100% 65%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(210 8% 88%);
+  --secondary-foreground: hsl(208 14% 18%);
+  --muted: hsl(204 9% 90%);
+  --muted-foreground: hsl(208 14% 18% / 0.7);
+  --accent: hsl(228 100% 65%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(340 66% 54%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(208 14% 18% / 0.12);
+  --input: hsl(204 9% 90%);
+  --ring: hsl(228 100% 65%);
+  --sidebar: hsl(0 0% 100%);
+  --sidebar-foreground: hsl(208 14% 18%);
+  --sidebar-primary: hsl(228 100% 65%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(228 100% 65%);
+  --sidebar-accent-foreground: hsl(0 0% 100%);
+  --sidebar-border: hsl(208 14% 18% / 0.12);
+  --sidebar-ring: hsl(228 100% 65%);
+}
+
+/* ========================================
+   Tailwind Theme Tokens
+   ======================================== */
+@theme inline {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-glass: var(--card-glass);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply bg-background;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-size: 12px;
+    font-weight: 450;
+    letter-spacing: 0.02em;
+    line-height: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  a,
+  input,
+  [role="button"] {
+    @apply transition-all duration-150 ease-out;
+  }
+}
+
+/* ========================================
+   Component Styles
+   ======================================== */
+@layer components {
+
+  /* Range Slider */
+  input[type="range"] {
+    @apply w-full h-1 rounded appearance-none cursor-pointer;
+    background: var(--muted);
+    accent-color: var(--primary);
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none w-3 h-3 rounded-full cursor-pointer;
+    background: var(--primary);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply w-3 h-3 rounded-full cursor-pointer border-0;
+    background: var(--primary);
+  }
+
+  input[type="range"]:disabled {
+    @apply opacity-40 cursor-not-allowed;
+  }
+
+  /* Panel System */
+  .editor-panel {
+    background: var(--card);
+    /* border: 1px solid var(--border);
+    border-radius: var(--radius); */
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Icon Button */
+  .icon-btn {
+    @apply flex items-center justify-center rounded-md transition-colors duration-150 cursor-pointer;
+    width: 32px;
+    height: 32px;
+    color: var(--foreground);
+    background: transparent;
+  }
+
+  .icon-btn:hover {
+    background: var(--muted);
+  }
+
+  .icon-btn.active {
+    background: var(--muted);
+    color: var(--accent);
+  }
+
+  /* Tool Button (sidebar) */
+  .tool-btn {
+    @apply flex flex-col items-center justify-center gap-1 rounded-md cursor-pointer transition-all duration-150;
+    width: 62px;
+    height: 56px;
+    color: var(--muted-foreground);
+  }
+
+  .tool-btn:hover {
+    color: var(--foreground);
+    background: var(--muted);
+  }
+
+  .tool-btn.active {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    box-shadow: inset 2px 0 0 var(--accent);
+  }
+
+  /* Glass Effect */
+  .glass {
+    backdrop-filter: blur(12px);
+    background: var(--card-glass);
+    border: 1px solid var(--border);
+  }
+
+  /* Context Toolbar */
+  .context-toolbar {
+    @apply flex items-center gap-1 px-2 py-1 rounded-lg;
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .context-toolbar-btn {
+    @apply flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs cursor-pointer transition-colors;
+    color: var(--foreground);
+  }
+
+  .context-toolbar-btn:hover {
+    background: var(--muted);
+  }
+
+  .context-toolbar-btn.active {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+
+  /* Floating Actions */
+  .floating-actions {
+    @apply flex items-center gap-0.5 px-1.5 py-1 rounded-lg;
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* ========================================
+   Scrollbar
+   ======================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--foreground) 15%, transparent);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--foreground) 25%, transparent);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+/* Transition preview animations */
+@keyframes fadeOutPreview {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInPreview {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutPreview {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideInPreview {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomOutPreview {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0);
+  }
+}
+
+@keyframes zoomInPreview {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
