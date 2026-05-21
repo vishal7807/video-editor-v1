@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+
+
+#.md files
+BUG_FIXES.md
+DESIGN_SYSTEM.md
+DESIGN_UPGRADE.md
+FIX_SUMMARY.md
+IMPLEMENTATION_GUIDE.md
+
+# Logs
+logs
+
+#packege-lock.json
+package-lock.json
